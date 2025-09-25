@@ -28,7 +28,7 @@ This project allows users to manage **rooms**, **customers**, and **bookings**, 
 
 hotel-reservation-system/
 ├── API
-│ └── main.py   
+│ └── main.py                                                                                                     
 ├── frontend
 │ ├── app.py
 │ └── 
@@ -124,4 +124,5 @@ The API will be available at:
 ## Technical details
 
 # Technologies used :
+
 
