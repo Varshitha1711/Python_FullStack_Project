@@ -18,10 +18,10 @@ app=FastAPI(title="Hotel reservation system API",version='1.0')
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origin=["*"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_header=["*"],
+    allow_headers=["*"],
 )
 
 
@@ -44,7 +44,7 @@ class cust_update(BaseModel):
 class RoomCreate(BaseModel):
     type:str
     price:float
-    descrption:str
+    description:str
     status:str="available"
 
 class RoomUpdate(BaseModel):
@@ -84,7 +84,7 @@ def update_customer(cust_id: int, customer: cust_update):
         res = cust_manager.update_phone(cust_id, customer.phone)
     return res
 
-@app.delete("/customer/{cust_id}")
+@app.delete("/customers/{cust_id}")
 def delete_customer(cust_id:int):
     return cust_manager.delete_cust(cust_id)
 
@@ -96,7 +96,7 @@ def list_rooms():
 
 @app.post("/rooms")
 def create_room(room:RoomCreate):
-    return room_manager.add_room(room.type,room.price,room.descrption,room.status)
+    return room_manager.add_room(room.type,room.price,room.description,room.status)
 
 @app.put("/rooms/{room_id}")
 def update_room(room_id:int,room:RoomUpdate):
@@ -130,3 +130,4 @@ def cancel_booking(booking_id: int):
 
 if __name__=="__main__":
     import uvicorn
+    uvicorn.run("API.main:app", host="0.0.0.0", port=8000, reload=True)
