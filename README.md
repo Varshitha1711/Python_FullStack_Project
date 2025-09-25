@@ -42,23 +42,23 @@ hotel-reservation-system/
 └── README.md
 
 
-## 🚀 Getting Started
+### 🚀 Getting Started
 
 ### Prerequisites
 - Python 3.9+
 - Supabase account 
 
 ### Backend Setup
-## Clone the repository:
+### Clone the repository:
 
 git clone <repository-url>
 cd hotel-reservation-system
 
-## Install dependencies
+### Install dependencies
 
 pip install -r requirements.txt
 
-## Set up database tables in Supabase (rooms, customers, bookings).
+### Set up database tables in Supabase (rooms, customers, bookings).
 
 1.Create a Supabase project
 
@@ -99,7 +99,7 @@ Create table Customers (cust_id int primary key,
 
 3.Get your credentials
 
-## Configure your environment variables
+### Configure your environment variables
 
 1.Create .env file in project root
 
@@ -111,10 +111,10 @@ SUPABASE_KEY="your-supasebase-key"
 
 ### Run the application
 
-# Streamlit frontend
+### Streamlit frontend
 streamlit run frontend/app.py
 
-# FastAPI backend
+### FastAPI backend
 
 cd API
 python main.py
@@ -123,6 +123,48 @@ The API will be available at:
 
 ## Technical details
 
-# Technologies used :
+### Technologies used :
 
+### Backend
+
+FastAPI for building REST API endpoints.
+
+Supabase Python client for database operations.
+
+Booking logic and room availability handled in Python (no stored procedures).
+
+Automatic room status updates via Python-based scheduler.
+
+### Frontend
+
+Streamlit for interactive, user-friendly dashboards.
+
+Allows users to manage rooms, customers, and bookings.
+
+Real-time feedback on room availability and booking conflicts.
+
+### Database
+
+Supabase (PostgreSQL) stores all rooms, bookings, and customers.
+
+Tables: rooms, bookings, customers.
+
+status column in rooms ensures quick availability check.
+
+### Key Features
+
+Automatic booking validation to prevent overlapping reservations.
+
+Room status auto-reset after booking end date.
+
+Clean Python-only logic for maintainability and transparency.
+
+Easily deployable full-stack system.
+
+### Future Enhancements
+
+Add user authentication with Supabase Auth.
+Add payment integration.
+Implement search and filter for rooms by type, price, and amenities.
+Real-time notifications for customers about bookings.
 
