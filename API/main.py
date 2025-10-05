@@ -69,7 +69,8 @@ def home():
 
 @app.get("/customers")
 def list_customers():
-    return cust_manager.get_all_cust().data
+    res = cust_manager.get_all_cust()
+    return res.data 
 
 @app.post("/customers")
 def create_cust(customer:cust_create):
@@ -92,7 +93,8 @@ def delete_customer(cust_id:int):
 
 @app.get("/rooms")
 def list_rooms():
-    return room_manager.get_all_rooms().data
+    res=room_manager.get_all_rooms()
+    return res.data
 
 @app.post("/rooms")
 def create_room(room:RoomCreate):
@@ -114,7 +116,8 @@ def delete_room(room_id:int):
 
 @app.get("/bookings")
 def list_bookings():
-    return book_manager.display_book().data
+    res=book_manager.display_book()
+    return res.data
 
 @app.post("/bookings")
 def add_book(customer_id: int, room_id: int, start_date: str, end_date: str):
